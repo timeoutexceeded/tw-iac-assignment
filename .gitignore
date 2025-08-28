@@ -33,6 +33,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Infra env
+infra/.env
+
 # Node
 node_modules/
 hello-world.zip

@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+require("dotenv").config();
 
 test("GET /hello should return Hello World", async () => {
      const url = process.env.API_URL + "/hello";
