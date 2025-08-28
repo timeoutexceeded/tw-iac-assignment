@@ -1,0 +1,28 @@
+{
+  "name": "tw-iac-assignment",
+  "version": "1.0.0",
+  "description": "TW IAC Assignment",
+  "main": "src/lambda/hello-world.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timeoutexceeded/tw-iac-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timeoutexceeded/tw-iac-assignment/issues"
+  },
+  "homepage": "https://github.com/timeoutexceeded/tw-iac-assignment#readme",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "jest": "^30.1.1"
+  }
+}
