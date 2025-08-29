@@ -9,7 +9,8 @@
   "scripts": {
     "test:unit": "jest test/lambda/unit/hello-world.unit.test.js",
     "test:integration": "jest test/lambda/integration/hello-world.test.js",
-    "test": "npm run test:unit && npm run test:integration"
+    "test": "npm run test:unit && npm run test:integration",
+    "test:infra": "jest test/infra/terraform.test.js"
   },
   "repository": {
     "type": "git",
