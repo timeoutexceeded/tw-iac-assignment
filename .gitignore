@@ -41,4 +41,5 @@ node_modules/
 hello-world.zip
 
 # Others
+.DS_Store
 Rough.txt

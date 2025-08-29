@@ -1,7 +1,7 @@
 resource "aws_iam_role" "lambda_exec" {
      name = "${var.prefix}-hello-world-role"
 
-     assume_role_policy = jsonencoded({
+     assume_role_policy = jsonencode({
           Version = "2012-10-17"
           Statement = [{
                Action = "sts:AssumeRole"
@@ -20,7 +20,7 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
 
 data "archive_file" "lambda_zip" {
      type        = "zip"
-     source_dir  = "${path.module}/../src/lambda/hello-world"
+     source_dir  = "${path.module}/../src/lambda/"
      output_path = "${path.module}/build/hello-world.zip"
 }
 
@@ -28,7 +28,7 @@ resource "aws_lambda_function" "hello_world" {
      function_name = "${var.prefix}-hello-world"
      runtime       = "nodejs18.x"
      role          = aws_iam_role.lambda_exec.arn
-     handler       = "${var.prefix}-hello-world.handler"
+     handler       = "hello-world.handler"
      filename      = data.archive_file.lambda_zip.output_path
 }
 
