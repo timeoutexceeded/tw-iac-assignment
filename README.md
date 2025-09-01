@@ -3,3 +3,5 @@
 ## Overview
 
 This README is to be updated in your repo based on the [assignment instructions](./ASSIGNMENT.md).
+
+Please find the #milestone1 README [here](./milestone1.md).
