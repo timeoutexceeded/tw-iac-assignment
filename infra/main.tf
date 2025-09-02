@@ -90,8 +90,14 @@ resource "local_file" "env_file" {
 }
 
 resource "aws_apigatewayv2_api" "http_api" {
-     name          = "${var.prefix}-hello-world-api"
+     name          = "${var.prefix}-api"
      protocol_type = "HTTP"
+
+     cors_configuration {
+          allow_headers = ["*"]
+          allow_methods = ["*"]
+          allow_origins = ["*"]
+     }
 }
 
 resource "aws_apigatewayv2_integration" "hello_world_lambda" {
@@ -123,7 +129,7 @@ resource "aws_apigatewayv2_route" "default" {
 
 resource "aws_apigatewayv2_route" "register" {
      api_id    = aws_apigatewayv2_api.http_api.id
-     route_key = "PUT /register"
+     route_key = "POST /register"
      target    = "integrations/${aws_apigatewayv2_integration.register_user_lambda.id}"
 }
 
@@ -132,7 +138,6 @@ resource "aws_apigatewayv2_route" "verify" {
      route_key = "GET /verify"
      target    = "integrations/${aws_apigatewayv2_integration.verify_user_lambda.id}"
 }
-
 
 resource "aws_apigatewayv2_stage" "default" {
      api_id      = aws_apigatewayv2_api.http_api.id

@@ -3,7 +3,9 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
   try {
-    const userId = event.queryStringParameters?.userId;
+    const body = JSON.parse(event.body || "{}");
+    const { userId } = body;
+
     if (!userId) {
       return {
         statusCode: 400,
@@ -25,7 +27,10 @@ exports.handler = async (event) => {
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Internal Server Error", error: err.message }),
+      body: JSON.stringify({
+        message: "Internal Server Errorx",
+        error: err.message,
+      }),
     };
   }
 };
