@@ -40,6 +40,8 @@ test/infra/tfOutput.json
 # Node
 node_modules/
 hello-world.zip
+register-user.zip
+verify-user.zip
 
 # Others
 .DS_Store

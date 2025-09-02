@@ -68,19 +68,19 @@ resource "aws_lambda_function" "verify_user" {
 
 data "archive_file" "hello_world_lambda_zip" {
      type        = "zip"
-     source_file  = "${path.module}/../src/lambda/hello-world.js"
+     source_dir  = "${path.module}/../src/lambda/hello-world"
      output_path = "${path.module}/build/hello-world.zip"
 }
 
 data "archive_file" "register_lambda_zip" {
      type        = "zip"
-     source_file  = "${path.module}/../src/lambda/register-user.js"
+     source_dir  = "${path.module}/../src/lambda/register-user"
      output_path = "${path.module}/build/register-user.zip"
 }
 
 data "archive_file" "verify_lambda_zip" {
      type        = "zip"
-     source_file  = "${path.module}/../src/lambda/verify-user.js"
+     source_dir  = "${path.module}/../src/lambda/verify-user"
      output_path = "${path.module}/build/verify-user.zip"
 }
 
